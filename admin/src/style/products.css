@@ -298,3 +298,114 @@
 .submit:hover {
   background: #c62828;
 }
+
+
+
+
+/* SECTION */
+.promo-section {
+  margin-top: 20px;
+}
+
+/* HEADER */
+.promo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* TOGGLE SWITCH */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 24px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  inset: 0;
+  background-color: #ccc;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 3px;
+  top: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.switch input:checked + .slider {
+  background-color: #ff4d4f;
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(21px);
+}
+
+/* CARD */
+.promo-card {
+  background: linear-gradient(135deg, #fff5f5, #fff);
+  border: 1px solid #ffd6d6;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* ROW */
+.promo-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.promo-row div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* INPUT */
+.promo-card input,
+.promo-card select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+/* PREVIEW */
+.promo-preview {
+  margin-top: 10px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.new-price {
+  color: #ff4d4f;
+  font-weight: bold;
+}
+
+.arrow {
+  color: #666;
+}

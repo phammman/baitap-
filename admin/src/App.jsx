@@ -13,7 +13,10 @@ import AddProduct from './pages/Products/AddProducts';
 // import AddStaff from './pages/Staff/AddStaff';
 import AddStaff from './pages/staff/AddStaff';
 import MoreAccount from './pages/Account';
-import Pos from './pages/Pos';
+import Pos from './pages/pos/Pos';
+import AddPromotion from './pages/AddPromotion';
+import Setting from './pages/pos/Setting';
+import PosLayout from './components/PosLayout';
 
 
 function App() {
@@ -32,11 +35,25 @@ function App() {
         <Route path="/addProducts" element={<AddProduct/>}/>
         <Route path="/addStaff" element={<AddStaff/>}/>
         <Route path="/moreAccount" element={<MoreAccount/>}/>
-        <Route path="/pos" element={<Pos/>}/>
+        <Route path="/addPromotion" element={<AddPromotion/>}/>
       </Route>
+
+
+        {/* <Route path="/pos" element={<Pos/>}/>
+        <Route path="/pos/setting" element={
+            <PosLayout tabs={[]}> 
+              <Setting />
+            </PosLayout>
+          }/> */}
+
+        <Route path="/pos" element={<PosLayout />}>
+          <Route index element={<Pos />} />
+          <Route path="setting" element={<Setting />} />
+        </Route>
     </Routes>
-      <Topbar/>
+      {/* <Topbar/> */}
     </BrowserRouter>
+
     </>
   )
 }

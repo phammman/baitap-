@@ -1,0 +1,274 @@
+/* ================= ROOT ================= */
+:root {
+  --pos-primary: #ff4d4f;
+  --pos-bg: #f6f8fa;
+  --pos-border: #e5e7eb;
+  --pos-text: #333;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, sans-serif;
+  background: var(--pos-bg);
+}
+
+/* ================= LAYOUT ================= */
+.pos-wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+/* ================= SIDEBAR ================= */
+.pos-sidebar {
+  width: 64px;
+  background: white;
+  border-right: 1px solid var(--pos-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15px;
+  gap: 25px;
+}
+
+.pos-sidebar-item {
+  font-size: 20px;
+  padding: 10px;
+  color: #666;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.pos-sidebar-item:hover {
+  background: #f3f4f6;
+  color: var(--pos-primary);
+}
+
+.pos-sidebar-item.active {
+  background: #ffeaea;
+  color: var(--pos-primary);
+}
+
+/* ================= MAIN ================= */
+.pos-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================= HEADER ================= */
+.pos-header {
+  height: 50px;
+  background: var(--pos-primary);
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  gap: 10px;
+}
+
+.pos-search-box {
+  width: 300px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+}
+
+/* ================= TABS ================= */
+.pos-tabs-list {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pos-tab-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.pos-tab-item.pos-active {
+  background: white;
+  color: var(--pos-text);
+}
+
+/* nút X */
+.pos-tab-close {
+  font-size: 14px;
+  cursor: pointer;
+  opacity: 0;
+  transition: 0.2s;
+}
+
+.pos-tab-item:hover .pos-tab-close {
+  opacity: 1;
+}
+
+.pos-tab-close:hover {
+  color: red;
+}
+
+/* nút + */
+.pos-add-tab-btn {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: white;
+  font-size: 18px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.pos-add-tab-btn:hover {
+  background: white;
+  color: var(--pos-primary);
+}
+
+/* ================= CONTENT ================= */
+.pos-content-area {
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ================= POS CONTAINER ================= */
+.pos-container {
+  display: flex;
+  height: 100%;
+  gap: 16px;
+  padding: 16px;
+}
+
+/* ================= PRODUCT ================= */
+.product-section {
+  flex: 2;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+/* CARD ngang */
+.product-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  background: white;
+  border-radius: 12px;
+  padding: 10px;
+
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+}
+
+/* ảnh */
+.product-card img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* info */
+.product-info {
+  flex: 1;
+  text-align: left;
+}
+
+.product-info h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.product-info p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #888;
+}
+
+/* button */
+.product-card button {
+  padding: 6px 12px;
+  background: #ff4d4f;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.product-card button:hover {
+  opacity: 0.9;
+}
+
+/* ================= ORDER ================= */
+.order-section {
+  flex: 1;
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.order-list {
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 10px;
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.order-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+}
+
+.order-item .info {
+  flex: 1;
+}
+
+.order-item strong {
+  font-size: 14px;
+}
+
+/* ================= SUMMARY ================= */
+.order-summary {
+  border-top: 1px solid var(--pos-border);
+  padding-top: 10px;
+}
+
+.order-summary div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 10px;
+  background: var(--pos-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
