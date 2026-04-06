@@ -17,6 +17,57 @@ body {
   display: flex;
   height: 100vh;
 }
+.pos-header-user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-left: auto;           /* Đẩy phần này ra bên phải cùng */
+  flex-shrink: 0;      
+  color:white;     
+  width:200px;   /* Không bị co lại */
+  height:36px;
+  transition: all 0.2s ease;
+}
+
+.pos-header-user:hover{
+  background:#fa8688;
+  border-radius:8px;
+  cursor:pointer;
+}
+.pos-branch-info h4 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1e2937;
+  white-space: nowrap;
+}
+
+.pos-header-user img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .pos-header {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  .pos-tabs-list {
+    order: 3;
+    width: 100%;
+  }
+  
+  .pos-header-user {
+    margin-left: 0;
+  }
+}
+
 
 /* ================= SIDEBAR ================= */
 .pos-sidebar {
@@ -72,6 +123,96 @@ body {
   border: none;
   outline: none;
 }
+
+
+.pos-layout-label{
+  color:white;
+  font-size: 20px;
+  margin-left:10px;
+}
+
+
+
+
+
+
+
+
+
+/* ==================== SIDEBAR TOOLTIP ==================== */
+.pos-sidebar-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  color: #64748b;
+  transition: all 0.3s ease;
+  /* margin: 8px 0; */
+}
+
+.pos-sidebar-item:hover {
+  color: var(--pos-primary);
+  background: #f1f5f9;
+  border-radius: 12px;
+}
+
+.pos-sidebar-item.active {
+  color: var(--pos-primary);
+  background: #eff6ff;
+}
+
+/* Tooltip */
+.sidebar-tooltip {
+  position: absolute;
+  left: 100%;                    /* hiện bên phải icon */
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 16px;
+  background: #1e2937;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+/* Mũi tên tooltip */
+.sidebar-tooltip::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-right: 6px solid #1e2937;
+}
+
+.pos-sidebar-item:hover .sidebar-tooltip {
+  opacity: 1;
+  visibility: visible;
+  margin-left: 24px;   /* tạo khoảng cách đẹp hơn khi hover */
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /* ================= TABS ================= */
 .pos-tabs-list {
@@ -272,3 +413,676 @@ body {
   font-weight: bold;
   cursor: pointer;
 }
+
+
+
+
+
+/* css phần Order Search */
+/* ===== ROOT ===== */
+/* ==================== ORDER SEARCH LAYOUT ==================== */
+.order-search-container {
+  display: flex;
+  height: 100vh;
+  background-color: #f9fafb;
+  overflow: hidden;
+}
+
+/* Bên trái dùng chung class với CashBook */
+.order-search-left {
+  width: 35%;
+  min-width: 420px;
+  border-right: 1px solid #e5e7eb;
+}
+
+/* Bên phải */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* test */
+/* ==================== CHI TIẾT ĐƠN HÀNG (THEO ẢNH) ==================== */
+.order-detail-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  height: 100%;
+  overflow: hidden;
+}
+
+.order-detail-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-detail-id {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1e2937;
+}
+
+.order-detail-time {
+  color: #64748b;
+  font-size: 14.5px;
+}
+
+.order-detail-actions button {
+  padding: 8px 20px;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 12px;
+}
+
+.refund-btn {
+  background: #f3e8ff;
+  color: #7c3aed;
+}
+
+.print-btn {
+  background: #3b82f6;
+  color: white;
+}
+
+/* Thông tin tạo đơn */
+.order-info-section {
+  padding: 20px 24px;
+  background: #f8fafc;
+}
+
+.info-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+.info-row span {
+  font-size: 18px;
+}
+
+/* Sản phẩm */
+.products-section {
+  padding: 20px 24px;
+}
+
+.products-section h3 {
+  margin-bottom: 16px;
+  font-size: 18px;
+  color: #1e2937;
+}
+
+.product-row {
+  display: flex;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.product-image-placeholder {
+  width: 48px;
+  height: 48px;
+  background: #f1f5f9;
+  border-radius: 8px;
+  margin-right: 16px;
+}
+
+.product-name { flex: 1; font-weight: 500; }
+.product-qty { color: #64748b; width: 50px; text-align: center; }
+.product-unit-price, .product-total { 
+  text-align: right; 
+  min-width: 120px; 
+  font-weight: 500;
+}
+
+/* Tổng kết */
+.summary-section {
+  padding: 20px 24px;
+  background: #fafafa;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  font-size: 15px;
+}
+
+.summary-divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 12px 0;
+}
+
+.final-summary {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.final-left, .final-right {
+  text-align: right;
+}
+
+.final-amount {
+  font-size: 22px;
+  font-weight: 700;
+  color: #3b82f6;
+}
+
+.final-debt {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ef4444;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Cash book  */
+/* CashBook.css */
+
+.cash-book-container {
+  display: flex;
+  height: 100vh;
+  background-color: #f9fafb;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow: hidden;
+}
+
+/* ==================== SIDEBAR (Bên trái) ==================== */
+.cash-book-sidebar {
+  width: 35%;           /* cố định chiều rộng sidebar */
+  min-width: 420px;
+  border-radius: 16px;
+  border-right: 1px solid #e5e7eb;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ... (phần search, date, totals, voucher list, footer giữ nguyên như cũ) */
+
+.cash-book-search { padding: 16px; border-bottom: 1px solid #f3f4f6; }
+.cash-book-search-input-wrapper { position: relative; }
+.cash-book-search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #9ca3af; font-size: 18px; }
+.cash-book-search-input {
+  width: 100%;
+  padding: 12px 16px 12px 52px;
+  background-color: #f3f4f6;
+  border: none;
+  border-radius: 9999px;
+  font-size: 14px;
+  outline: none;
+}
+.cash-book-search-input:focus { box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); }
+
+.cash-book-date-range {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background-color: #f8fafc;
+  font-size: 14px;
+  border-bottom: 1px solid #e5e7eb;
+}
+.cash-book-date-arrow { color: #9ca3af; }
+.cash-book-calendar-icon { margin-left: auto; font-size: 20px; }
+
+.cash-book-totals {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.cash-book-total-card {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.cash-book-receipt .cash-book-total-icon { color: #16a34a; }
+.cash-book-payment .cash-book-total-icon { color: #dc2626; }
+
+.cash-book-total-icon { font-size: 24px; margin-bottom: 4px; }
+.cash-book-total-label { font-size: 14px; color: #64748b; }
+.cash-book-total-amount { font-size: 22px; font-weight: 600; margin-top: 8px; }
+
+.cash-book-voucher-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.cash-book-voucher-item {
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.cash-book-voucher-item:hover { background-color: #f8fafc; border-color: #cbd5e1; }
+.cash-book-voucher-active { background-color: #eff6ff; border-color: #ff4d4f; }
+
+.cash-book-voucher-header { display: flex; justify-content: space-between; margin-bottom: 8px; }
+.cash-book-voucher-id { font-weight: 600; font-size: 16px; }
+.cash-book-voucher-date { font-size: 13px; color: #64748b; }
+.cash-book-voucher-amount { font-size: 20px; font-weight: 600; color: #16a34a; }
+
+.cash-book-footer {
+  padding: 16px;
+  border-top: 1px solid #e5e7eb;
+}
+.cash-book-create-btn {
+  width: 100%;
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 9999px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.cash-book-create-btn:hover { background-color: #f83336; }
+
+.cash-book-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 14px;
+  color: #64748b;
+}
+.cash-book-page-number {
+  width: 24px;
+  height: 24px;
+  background-color: #2563eb;
+  color: white;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ==================== MAIN CONTENT (Bên phải - Responsive) ==================== */
+.cash-book-main {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  background-color: #f9fafb;
+  min-width: 400px;           /* đảm bảo không bị co quá nhỏ */
+}
+
+.cash-book-detail-wrapper {
+  width: 100%;
+  max-width: 100%;           /* giới hạn chiều rộng tối đa */
+  margin: 0 auto;             /* căn giữa khi màn hình to */
+}
+
+.cash-book-detail-card {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  height:100%;
+  margin-bottom:24px;
+}
+
+.cash-book-detail-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cash-book-detail-id {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.cash-book-type-badge {
+  background-color: #dcfce7;
+  color: #166534;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.cash-book-detail-info {
+  padding: 24px; 
+}
+
+.cash-book-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.cash-book-label {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+.cash-book-value {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.cash-book-section {
+  margin-top: 32px;
+}
+
+.cash-book-section-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.cash-book-supplier-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #f1f5f9;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.cash-book-supplier-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cash-book-avatar {
+  width: 52px;
+  height: 52px;
+  background-color: #dbeafe;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.cash-book-amount-right {
+  text-align: right;
+  min-width: 140px;
+}
+
+.cash-book-big-amount {
+  font-size: 28px;
+  font-weight: 700;
+  color: #16a34a;
+}
+
+.cash-book-currency-label {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.cash-book-description-box,
+.cash-book-reference-box {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 14px;
+  min-height: 80px;
+  width: 100%;
+}
+
+.cash-book-reference-box {
+  color: #94a3b8;
+  text-align: center;
+}
+
+.cash-book-image-placeholder {
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  font-size: 15px;
+  width: 100%;
+}
+
+/* Empty State */
+.cash-book-empty-list,
+.cash-book-empty-main {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  font-size: 18px;
+}
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 1024px) {
+  .cash-book-sidebar {
+    width: 42%;
+    min-width: 380px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cash-book-container {
+    flex-direction: column;
+  }
+  .cash-book-sidebar {
+    width: 100%;
+    height: 50%;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .cash-book-main {
+    height: 50%;
+    padding: 16px;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* Date Range */
+/* ==================== DATE RANGE - THEO ORDERBOOK ==================== */
+.cash-book__filter {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+/* search */
+.cash-book__input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f3f4f6;
+  padding: 10px 12px;
+  border-radius: 999px;
+}
+
+.cash-book__input input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+}
+
+/* ===== FILTER ROW (FIX LỆCH) ===== */
+.cash-book__row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr 1fr;
+  gap: 6px;
+  align-items: center;
+}
+
+.cash-book__row input,
+.cash-book__row select {
+  width: 20vh;
+  height: 34px;
+  padding: 0 8px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 13px;
+}
+
+.cash-book__row span {
+  text-align: center;
+  color: #888;
+}
+
+/* ==================== DETAIL HEADER ACTIONS ==================== */
+.cash-book-detail-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cash-book-header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.cash-book-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.save-btn {
+  background: #22c55e;
+  color: white;
+}
+
+.cancel-btn {
+  background: #ef4444;
+  color: white;
+}
+
+.save-btn:hover { background: #16a34a; }
+.cancel-btn:hover { background: #dc2626; }
+
+/* Input & Textarea */
+.cash-book-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 15px;
+  resize: vertical;
+  min-height: 80px;
+  background: #fafafa;
+}
+
+.cash-book-input:focus {
+  border-color: #3b82f6;
+  outline: none;
+  background: white;
+}
+
+/* Upload Area */
+.cash-book-upload-area {
+  border: 2px dashed #94a3b8;
+  border-radius: 12px;
+  padding: 40px 20px;
+  text-align: center;
+  color: #64748b;
+  cursor: pointer;
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+}
+
+.cash-book-upload-area:hover {
+  border-color: #3b82f6;
+  background: #f0f9ff;
+}
+
+.upload-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+  color: #64748b;
+}
+
+/* Cải thiện khoảng cách */
+.cash-book-description,
+.cash-book-reference {
+  margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

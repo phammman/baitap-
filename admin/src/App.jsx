@@ -17,6 +17,8 @@ import Pos from './pages/pos/Pos';
 import AddPromotion from './pages/AddPromotion';
 import Setting from './pages/pos/Setting';
 import PosLayout from './components/PosLayout';
+import OrderSearch from './pages/pos/OrderSearch';
+import CashBook from './pages/pos/Cashbook';
 
 
 function App() {
@@ -49,6 +51,8 @@ function App() {
         <Route path="/pos" element={<PosLayout />}>
           <Route index element={<Pos />} />
           <Route path="setting" element={<Setting />} />
+          <Route path="orderSearch" element={<OrderSearch />} />
+          <Route path="cashBook" element={<CashBook />} />
         </Route>
     </Routes>
       {/* <Topbar/> */}
